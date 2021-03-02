@@ -1,8 +1,18 @@
 #!/bin/bash -x
-head=1
-tail=0
-if [ $((RANDOM%2)) -eq 1 ];then
-echo "Head wins"
+totalcount=100
+hcount=0
+tcount=0
+while [ $totalcount -gt 0 ]
+do
+if [ $((RANDOM%2)) -eq 1 ]
+then
+let hcount++
 else
-echo "Tails wins"
+let tcount++
 fi
+let totalcount--
+done
+echo "tail wins $tcount times"
+echo "head wins $hcount times"
+
+
